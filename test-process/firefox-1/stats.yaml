@@ -1,0 +1,31 @@
+connection:
+  client_address: 172.18.0.4
+  client_streams: [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35,
+    37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69]
+  error: NO_ERROR
+  first_stream: 0
+  last_stream: 69
+  server_address: 172.18.0.5
+  server_streams: [0]
+  terminated: true
+frames:
+  CONTINUATION: {count: 0, length: 0, relative_count: 0.0, relative_length: 0.0, timestamp: 0.0}
+  DATA: {count: 401, length: 3168110, relative_count: 80.36072144288578, relative_length: 99.83984580825869,
+    timestamp: 12.632011}
+  GO_AWAY: {count: 1, length: 17, relative_count: 0.2004008016032064, relative_length: 0.0005357381463208025,
+    timestamp: 14.615434}
+  HEADERS: {count: 56, length: 4495, relative_count: 11.22244488977956, relative_length: 0.1416554686889416,
+    timestamp: 12.632011}
+  MAGIC: {count: 1, length: 24, relative_count: 0.2004008016032064, relative_length: 0.0007563362065705448,
+    timestamp: 3.589621}
+  PING: {count: 0, length: 0, relative_count: 0.0, relative_length: 0.0, timestamp: 0.0}
+  PRIORITY: {count: 6, length: 84, relative_count: 1.2024048096192386, relative_length: 0.0026471767229969065,
+    timestamp: 3.589621}
+  PUSH_PROMISE: {count: 0, length: 0, relative_count: 0.0, relative_length: 0.0, timestamp: 0.0}
+  RST_STREAM: {count: 0, length: 0, relative_count: 0.0, relative_length: 0.0, timestamp: 0.0}
+  SETTINGS: {count: 4, length: 72, relative_count: 0.8016032064128256, relative_length: 0.0022690086197116343,
+    timestamp: 3.594496}
+  WINDOW_UPDATE: {count: 30, length: 390, relative_count: 6.012024048096192, relative_length: 0.012290463356771352,
+    timestamp: 12.63131}
+settings: {ENABLE_PUSH: 1, HEADER_TABLE_SIZE: 65536, INITIAL_WINDOW_SIZE: 131072,
+  MAX_CONCURRENT_STREAMS: 128, MAX_FRAME_SIZE: 16384, MAX_HEADER_LIST_SIZE: -1}

@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+
+from enum import Enum
+
+
+class Http2Error(Enum):
+    NO_ERROR = 0
+    PROTOCOL_ERROR = 1
+    INTERNAL_ERROR = 2
+    FLOW_CONTROL_ERROR = 3
+    SETTINGS_TIMEOUT = 4
+    STREAM_CLOSED = 5
+    FRAME_SIZE_ERROR = 6
+    REFUSED_STREAM = 7
+    CANCEL = 8
+    COMPRESSION_ERROR = 9
+    CONNECT_ERROR = 10
+    ENHANCE_YOUR_CALM = 11
+    INADEQUATE_SECURITY = 12
+    HTTP_1_1_REQUIRED = 13
+
+
+class Http2Frame(Enum):
+    DATA = 0
+    HEADERS = 1
+    PRIORITY = 2
+    RST_STREAM = 3
+    SETTINGS = 4
+    PUSH_PROMISE = 5
+    PING = 6
+    GO_AWAY = 7
+    WINDOW_UPDATE = 8
+    CONTINUATION = 9
+    MAGIC = 10
+
+
+class Http2Settings(Enum):
+    HEADER_TABLE_SIZE = 1
+    ENABLE_PUSH = 2
+    MAX_CONCURRENT_STREAMS = 3
+    INITIAL_WINDOW_SIZE = 4
+    MAX_FRAME_SIZE = 5
+    MAX_HEADER_LIST_SIZE = 6
+
+
+class Http2State(Enum):
+    IDLE = 0
+    OPEN = 1
+    CLOSED = 2
+    RESERVED_LOCAL = 3
+    RESERVED_REMOTE = 4
+    HALF_CLOSED_LOCAL = 5
+    HALF_CLOSED_REMOTE = 6
