@@ -7,6 +7,7 @@ from fingerprinting.analysis.h2 import Http2Error, Http2Frame, Http2Settings
 class SslSegmentIndex(object):
 
     def __init__(self, record_id, record_size, segment_id, segment_size):
+
         self.record_id = record_id
         self.record_size = record_size
         self.segment_id = segment_id
@@ -114,12 +115,14 @@ class Frame(object):
 class Data(Frame):
 
     def __init__(self, packet, layer, layer_id, sublayer_id):
+
         super().__init__(packet, layer, layer_id, sublayer_id)
         flags = layer.nested("http2.flags")
         self.padded = flags.boolean("http2.flags.padded")
         self.end_stream = flags.boolean("http2.flags.end_stream")
 
     def serialize(self):
+
         return {
             **super().serialize(),
             "flags_padded": self.padded,
@@ -130,11 +133,13 @@ class Data(Frame):
 class GoAway(Frame):
 
     def __init__(self, packet, layer, layer_id, sublayer_id):
+
         super().__init__(packet, layer, layer_id, sublayer_id)
         self.error = Http2Error(layer.integer("http2.goaway.error"))
         self.last_stream = layer.integer("http2.goaway.last_stream_id")
 
     def serialize(self):
+
         return {
             **super().serialize(),
             "error": self.error.name,
