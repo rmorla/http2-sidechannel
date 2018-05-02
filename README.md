@@ -15,3 +15,5 @@ python3 main.py test/firefox-1.pcap
 ```
 
 A directory called ``firefox-1`` should appear inside the ``test`` directory. Check if the output matches the files inside the ``test_output`` directory.
+
+You can try yourself with your own .pcap files (for instance, ``mycapture.pcap``), as long as you supply the corresponding pre-master secrets inside ``mycapture.log``.
