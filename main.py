@@ -45,7 +45,6 @@ def process_single_capture(filename):
 
     state = Application()
     state.parse_xml(ElementTree.parse(capture))
-    utils.write_pickle(utils.replace_extension(filename, "yml"), state)
     state.serialize(output_directory)
     os.remove(editcap_filename)
 

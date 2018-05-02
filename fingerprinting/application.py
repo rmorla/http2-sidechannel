@@ -75,6 +75,8 @@ class Application(object):
             k: v.serialize() for k, v in self.frames.items()
         })
 
+        utils.write_pickle(os.path.join(directory, "all.yaml"), self)
+
     def insert_frames(self, packet, layer, layer_id):
 
         if type(layer) is list:
