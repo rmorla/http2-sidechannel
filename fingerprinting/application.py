@@ -57,25 +57,25 @@ class Application(object):
 
     def serialize(self, directory):
 
-        utils.write_yaml(os.path.join(directory, "stats.yaml"), {
+        utils.write_yaml(os.path.join(directory, "stats.yml"), {
             "settings": self.settings,
             "frames": self.statistics.serialize(),
             "connection": self.connection.serialize(),
         })
 
-        utils.write_yaml(os.path.join(directory, "streams.yaml"), {
+        utils.write_yaml(os.path.join(directory, "streams.yml"), {
             k: v.serialize() for k, v in self.streams.items()
         })
 
-        utils.write_yaml(os.path.join(directory, "packets.yaml"), {
+        utils.write_yaml(os.path.join(directory, "packets.yml"), {
             k: v.serialize() for k, v in self.packets.items()
         })
 
-        utils.write_yaml(os.path.join(directory, "frames.yaml"), {
+        utils.write_yaml(os.path.join(directory, "frames.yml"), {
             k: v.serialize() for k, v in self.frames.items()
         })
 
-        utils.write_pickle(os.path.join(directory, "all.yaml"), self)
+        utils.write_pickle(os.path.join(directory, "all.yml"), self)
 
     def insert_frames(self, packet, layer, layer_id):
 
