@@ -18,7 +18,7 @@
 #
 
 frame-tls:
-# stream 17 frames from the web server, firfox-1.pcap
+# frames from the web server on stream 17 (GET /css/bootstrap.min.cc), firfox-1.pcap
   A69:
     # header
     frame: {p: 151, i: 7, j: 1, s: 119}
