@@ -8,8 +8,8 @@
 #   'i: 2' represents the second entry, typically the Ethernet II protocol
 #   'i: 1, j: 2' represents the Arrival Time in the Frame protocol
 #   'i: 2, j: 3' represents the Type of the payload of the Ethernet II protocol
-#   *frame.s* represents the size of the http2 frame including headers
-#   *tls.s* represent the size of the frame in the decrypted TLS record payload, which may be different if the SSL data is segmented into two or more TLS records
+#  - *frame.s* represents the size of the http2 frame including headers
+#  - *tls.s* represent the size of the frame in the decrypted TLS record payload, which may be different if the SSL data is segmented into two or more TLS records
 #
 # One HTTP2 frame may be sent in one or more TLS records, thus *tls* is a list
 #
