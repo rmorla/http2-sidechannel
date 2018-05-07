@@ -1,0 +1,75 @@
+# This annotation data was created manually by interacting with Wireshark
+# and can be used to validate the analysis tool. It may contain errors.
+
+# HTTP2 frames and TLS records are univocally identified by:
+# - the capture's packet index in Wireshark, *p*
+# - the position in the Packet Details tree window, with *i* as the top level index and *j* the second level index; for example:
+#   'i: 1' represents the first entry in the packet, typically the Frame protocol
+#   'i: 2' represents the second entry, typically the Ethernet II protocol
+#   'i: 1, j: 2' represents the Arrival Time in the Frame protocol
+#   'i: 2, j: 3' represents the Type of the payload of the Ethernet II protocol
+#   *frame.s* represents the size of the http2 frame including headers
+#   *tls.s* represent the size of the frame in the decrypted TLS record payload, which may be different if the SSL data is segmented into two or more TLS records
+#
+# One HTTP2 frame may be sent in one or more TLS records, thus *tls* is a list
+#
+#
+
+frame-tls:
+# stream 17 frames from the web server, firfox-1.pcap
+  A69:
+    # header
+    frame: {p: 151, i: 7, j: 1, s: 119}
+    tls: [ {p: 151, i: 6, j: 1, s: 119 }, ]
+  A70:
+    #first data frame
+    frame: {p: 151, i: 7, j: 2, s: 8201}
+    tls: [ {p: 151, i: 6, j: 1, s: 8201}, ]
+  A71:
+    # subsequent data frames
+    frame: {p: 173, i: 8, j: 1, s: 8201}
+    tls: [ {p: 151, i: 6, j: 1, s: 8064}, {p: 173, i: 6, j: 1, s: 137}, ]
+  A72:
+    frame: {p: 173, i: 9, j: 1, s: 8201}
+    tls: [ {p: 173, i: 6, j: 1, s: 8201}, ]
+  A73:
+    frame: {p: 173, i: 12, j: 1, s: 8201}
+    tls: [ {p: 173, i: 6, j: 1, s: 8046}, {p: 173, i: 10, j: 1, s: 155},]
+  A74:
+    frame: {p: 204, i: 7, j: 1, s: 8201}
+    tls: [ {p: 204, i: 6, j: 1, s: 8201}, ]
+  A75:
+    frame: {p: 228, i: 8, j: 1, s: 8201}
+    tls: [ {p: 204, i: 6, j: 1, s: 8183}, {p: 228, i: 6, j: 1, s: 18},]
+  A76:
+    frame: {p: 228, i: 9, j: 1, s: 8201}
+    tls: [ {p: 228, i: 6, j: 1, s: 8201}, ]
+  A77:
+    frame: {p: 228, i: 12, j: 1, s: 8201}
+    tls: [ {p: 228, i: 6, j: 1, s: 8183}, {p: 228, i: 11, j: 1, s: 36},]
+  A78:
+    frame: {p: 268, i: 7, j: 1, s: 8201}
+    tls: [ {p: 268, i: 6, j: 1, s: 8201}, ]
+  A79:
+    frame: {p: 294, i: 8, j: 1, s: 8201}
+    tls: [ {p: 268, i: 6, j: 1, s: 8183}, {p: 294, i: 6, j: 1, s: 18},]
+# did not annotate a bunch of header frames from other streams that are in this position in the pcap
+  A104:
+    frame: {p: 294, i: 9, j: 25, s: 8201}
+    tls: [ {p: 294, i: 6, j: 1, s: 8201}, ]
+  A105:
+    frame: {p: 321, i: 8, j: 1, s: 8201}
+    tls: [ {p: 294, i: 6, j: 1, s: 5265}, {p: 321, i: 6, j: 1, s: 2936},]
+  A106:
+    frame: {p: 321, i: 9, j: 1, s: 8201}
+    tls: [ {p: 321, i: 6, j: 1, s: 8201}, ]
+  A107:
+    frame: {p: 345, i: 8, j: 1, s: 8201}
+    tls: [ {p: 321, i: 6, j: 1, s: 5247}, {p: 345, i: 6, j: 1, s: 2954},]
+  A108:
+    frame: {p: 345, i: 9, j: 1, s: 8201}
+    tls: [ {p: 345, i: 6, j: 1, s: 8201}, ]
+# the last frame is smaller than others to adjust for request size
+  A109:
+    frame: {p: 345, i: 9, j: 2, s: 4472}
+    tls: [ {p: 345, i: 6, j: 1, s: 4472}, ]
