@@ -1,6 +1,6 @@
 # http2-sidechannel
 
-Before running the HTTP/2 traffic analysis tool, ensure you have ``python3 >= 3.6`` and ``pip`` installed.
+Before running the HTTP/2 traffic analysis tool, ensure you have ``python3 >= 3.6``, ``pip3``, and ``tshark`` installed.
 
 You can install the project dependencies by running the following command (only required once):
 
