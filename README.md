@@ -1,11 +1,11 @@
 # http2-sidechannel
 
-Before running the HTTP/2 traffic analysis tool, ensure you have ``python3 >= 3.6``, ``pip3``, and ``tshark`` installed. (Tested on ubuntu/bionic64 vagrant box.)
+Before running the HTTP/2 traffic analysis tool, ensure you have ``python3 >= 3.6``, ``pip`` for python3, and ``tshark >= 2.6`` installed. (Tested on archlinux/archlinux 2018/05/05 vagrant box.)
 
 You can install the project dependencies by running the following command (only required once):
 
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Then, to perform analysis against the provided sample .pcap file, execute the following command:
