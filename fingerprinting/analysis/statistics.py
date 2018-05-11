@@ -31,12 +31,19 @@ class Statistics(object):
 
     def get_statistics(self, mapping):
 
+        total_count = self.total_count
+        if total_count == 0:
+            total_count = 1
+        total_length = self.total_length
+        if total_length == 0:
+            total_length = 1
+
         return {
             "count": mapping["count"],
             "length": mapping["length"],
             "timestamp": mapping["timestamp"],
-            "relative_count": (mapping["count"] / self.total_count) * 100,
-            "relative_length": (mapping["length"] / self.total_length) * 100
+            "relative_count": (mapping["count"] / total_count) * 100,
+            "relative_length": (mapping["length"] / total_length) * 100
         }
 
     def serialize(self):

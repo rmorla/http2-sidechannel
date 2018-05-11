@@ -11,43 +11,7 @@ from fingerprinting.common import utils
 from fingerprinting.application import Application
 from fingerprinting.common.tshark import FileCapture
 
-
-def process_single_capture(filename):
-
-    print("[>] %s" % filename)
-    editcap_filename = filename + ".tmp"
-
-    display_filter = "ssl && \
-        ip.src >= {lb} && ip.src <= {ub} && \
-        ip.dst >= {lb} && ip.dst <= {ub}".format(lb="172.18.0.0", ub="172.18.0.255")
-
-    override_prefs = {
-        "tcp.desegment_tcp_streams": "TRUE",
-        "ssl.desegment_ssl_records": "TRUE",
-        "ssl.desegment_ssl_application_data": "TRUE",
-        "ssl.keylog_file": utils.replace_extension(filename, "log")
-    }
-
-    subprocess.Popen(
-        ["editcap", "-d", "-F", "pcap", filename, editcap_filename],
-        stderr=subprocess.DEVNULL,
-        stdout=subprocess.DEVNULL
-    ).wait()
-
-    output_directory = utils.get_output_directory(filename)
-    utils.create_output_directory(output_directory)
-
-    capture = FileCapture(
-        display_filter=display_filter,
-        override_prefs=override_prefs,
-        input_filename=editcap_filename
-    ).get_tshark_process().stdout
-
-    state = Application()
-    state.parse_xml(ElementTree.parse(capture))
-    state.serialize(output_directory)
-    os.remove(editcap_filename)
-
+from processpcaps.analyze import process_single_capture
 
 if __name__ == "__main__":
 

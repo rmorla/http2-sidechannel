@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from enum import Enum
-
+from fingerprinting.analysis.parser import MissingField
 
 class TlsRecordType(Enum):
     CHANGE_CIPHER_SPEC = 20
@@ -70,8 +70,11 @@ class TlsRecord(object):
             self.frames = []
             self.frames_length = 0
         elif self.type == TlsRecordType.HANDSHAKE:
-            wrapper = layer.nested("ssl.handshake")
-            self.handshake = TlsHandshakeType(wrapper.integer("ssl.handshake.type"))
+            try:
+                wrapper = layer.nested("ssl.handshake")
+                self.handshake = TlsHandshakeType(wrapper.integer("ssl.handshake.type"))
+            except MissingField:
+                self.handshake = TlsHandshakeType(TlsHandshakeType.ENCRYPTED)
 
     def insert_frame(self, frame):
 
