@@ -13,9 +13,11 @@ from fingerprinting.common.tshark import FileCapture
 
 from processpcaps.analyze import process_single_capture
 from processpcaps.analyze import process_single_capture_notlskeys
+from processpcaps.analyze import enumerate_tcpstreams_in_capture
 
 def firefox1 ():
     filename = os.path.abspath("./test/firefox-1.pcap")
     print (filename)
     process_single_capture(filename, "withtlskeys")
     process_single_capture_notlskeys(os.path.abspath("./test/firefox-1.pcap"), "withouttlskeys")
+    enumerate_tcpstreams_in_capture(filename)
