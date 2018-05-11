@@ -17,5 +17,5 @@ from processpcaps.analyze import process_single_capture_notlskeys
 def firefox1 ():
     filename = os.path.abspath("./test/firefox-1.pcap")
     print (filename)
-    #process_single_capture(filename, "withtlskeys")
+    process_single_capture(filename, "withtlskeys")
     process_single_capture_notlskeys(os.path.abspath("./test/firefox-1.pcap"), "withouttlskeys")
